@@ -9,13 +9,14 @@
 #import "UIViewController+YHPopupViewController.h"
 #import <objc/runtime.h>
 #import "YHPopupView.h"
+#import "YHBackgroundView.h"
 
 #define kYHPopupView @"kYHPopupView"
 #define kYHOverlayView @"kYHOverlayView"
 #define kYHPopupAnimation @"kYHPopupAnimation"
 #define BackgoundViewTag 930527
 
-@interface UIViewController ()<UIGestureRecognizerDelegate>
+@interface UIViewController ()
 
 @property(nonatomic, retain) UIView *dn_popupView;
 @property(nonatomic, retain) UIView *overlayView;
@@ -105,7 +106,7 @@
         overlayView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         overlayView.backgroundColor = [UIColor clearColor];
         
-        UIView *backgroundView = [[UIView alloc] initWithFrame:sourceView.bounds];
+        YHBackgroundView *backgroundView = [[YHBackgroundView alloc] initWithFrame:sourceView.bounds];
         backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         backgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.0];
         backgroundView.tag = BackgoundViewTag;
@@ -117,9 +118,10 @@
                 backgroundView.backgroundColor = pv.backgroundViewColor;
             }
             if (pv.clickBlankSpaceDismiss) {
-                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(p_dismissPopupView)];
-                tap.delegate = self;
-                [overlayView addGestureRecognizer:tap];
+                __weak typeof(self) wself = self;
+                backgroundView.hitCallback = ^{
+                    [wself p_dismissPopupView];
+                };
             }
         }
         
@@ -137,15 +139,6 @@
         recentView = recentView.parentViewController;
     }
     return recentView.view;
-}
-
-#pragma mark - UIGestureRecognizerDelegate
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-    if (touch.view.tag == BackgoundViewTag) {
-        return YES;
-    }
-    return NO;
 }
 
 @end
