@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A61971024D3F4120092EB8B /* YHBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A61970F24D3F4120092EB8B /* YHBackgroundView.m */; };
 		B45938981DFE3BC30039A8FD /* YHMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B45938971DFE3BC30039A8FD /* YHMessageView.m */; };
 		B472BE751DF178BA00249E3B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B472BE741DF178BA00249E3B /* main.m */; };
 		B472BE781DF178BA00249E3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B472BE771DF178BA00249E3B /* AppDelegate.m */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A61970E24D3F4120092EB8B /* YHBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHBackgroundView.h; sourceTree = "<group>"; };
+		5A61970F24D3F4120092EB8B /* YHBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHBackgroundView.m; sourceTree = "<group>"; };
 		B45938961DFE3BC30039A8FD /* YHMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHMessageView.h; sourceTree = "<group>"; };
 		B45938971DFE3BC30039A8FD /* YHMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHMessageView.m; sourceTree = "<group>"; };
 		B472BE701DF178BA00249E3B /* YHPopupViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHPopupViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +162,8 @@
 		B472BEA61DF178E900249E3B /* YHPopupView */ = {
 			isa = PBXGroup;
 			children = (
+				5A61970E24D3F4120092EB8B /* YHBackgroundView.h */,
+				5A61970F24D3F4120092EB8B /* YHBackgroundView.m */,
 				B4B76C571DFF8FE400A0C003 /* Controller */,
 				B472BEA91DF178E900249E3B /* YHPopupView.h */,
 				B472BEAA1DF178E900249E3B /* YHPopupView.m */,
@@ -271,6 +276,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -325,6 +331,7 @@
 				B472BE781DF178BA00249E3B /* AppDelegate.m in Sources */,
 				B472BE751DF178BA00249E3B /* main.m in Sources */,
 				B472BEAF1DF178E900249E3B /* YHPopupViewAnimation.m in Sources */,
+				5A61971024D3F4120092EB8B /* YHBackgroundView.m in Sources */,
 				B4B76C5A1DFF8FE400A0C003 /* UIViewController+YHPopupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

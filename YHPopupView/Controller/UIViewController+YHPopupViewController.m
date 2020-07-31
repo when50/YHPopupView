@@ -32,7 +32,7 @@
     return objc_getAssociatedObject(self, kYHPopupView);
 }
 
-- (void)setDn_PopupView:(UIView *)popupView {
+- (void)setDn_popupView:(UIView *)popupView {
     objc_setAssociatedObject(self, kYHPopupView, popupView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
