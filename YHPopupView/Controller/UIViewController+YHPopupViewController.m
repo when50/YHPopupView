@@ -14,12 +14,14 @@
 #define kYHPopupView @"kYHPopupView"
 #define kYHOverlayView @"kYHOverlayView"
 #define kYHPopupAnimation @"kYHPopupAnimation"
+#define kYHOverlayBackgroundColor @"kYHOverlayBackgroundColor"
 #define BackgoundViewTag 930527
 
 @interface UIViewController ()
 
 @property(nonatomic, retain) UIView *dn_popupView;
 @property(nonatomic, retain) UIView *overlayView;
+@property(nonatomic, retain) UIColor *overlayBackgroundColor;
 @property(nonatomic, retain) id<YHPopupAnimation> popupAnimation;
 
 @end
@@ -50,6 +52,14 @@
 
 - (void)setPopupAnimation:(id<YHPopupAnimation>)popupAnimation{
     objc_setAssociatedObject(self, kYHPopupAnimation, popupAnimation, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (UIColor *)overlayBackgroundColor {
+    return objc_getAssociatedObject(self, kYHOverlayBackgroundColor);
+}
+
+- (void)setOverlayBackgroundColor:(UIColor *)backgroundColor {
+    objc_setAssociatedObject(self, kYHOverlayBackgroundColor, backgroundColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma mark - public method
@@ -108,7 +118,7 @@
         
         YHBackgroundView *backgroundView = [[YHBackgroundView alloc] initWithFrame:sourceView.bounds];
         backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        backgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.0];
+        backgroundView.backgroundColor = self.overlayBackgroundColor ?: [UIColor colorWithRed:0 green:0 blue:0 alpha:0.0];
         backgroundView.tag = BackgoundViewTag;
         [overlayView addSubview:backgroundView];
         

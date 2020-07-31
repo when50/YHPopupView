@@ -21,6 +21,7 @@
 
 @property (nonatomic, retain, readonly) UIView *dn_popupView;
 @property (nonatomic, retain, readonly) UIView *overlayView;
+@property (nonatomic, retain) UIColor *overlayBackgroundColor;
 @property (nonatomic, retain, readonly) id<YHPopupAnimation> popupAnimation;
 
 - (void)presentPopupView:(UIView *)popupView;

@@ -40,7 +40,9 @@
     [popupView addSubview:closeButton];
     
     popupView.backgroundColor = [UIColor blueColor];
+    self.overlayBackgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
     [self presentPopupView:popupView];
+    self.overlayBackgroundColor = nil;
 }
 - (IBAction)showAnimationPopupView:(id)sender {
     _animation = [[YHPopupViewAnimation alloc]
